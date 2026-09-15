@@ -1,0 +1,6 @@
+/target
+**/frontend/dist
+**/frontend/target
+tools/rag-spike/data/cloud-sec.pages.txt
+tools/rag-spike/data/index.json
+tools/rag-spike/data/qa-log.txt

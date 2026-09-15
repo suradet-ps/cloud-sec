@@ -1,0 +1,13 @@
+[package]
+name = "cloud-sec-docs"
+description = "Cloud Sec document index: page parsing, chunk building, index load and save"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[dependencies]
+cloud-sec-core = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }

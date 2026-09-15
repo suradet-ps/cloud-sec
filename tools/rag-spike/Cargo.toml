@@ -1,0 +1,17 @@
+[package]
+name = "rag-spike"
+version = "0.0.0"
+edition = "2024"
+description = "CLI spike: clause-aware retrieval over cloud-sec.pdf through local Ollama"
+publish = false
+
+[dependencies]
+anyhow = "1"                                              # application error context
+regex = "1"                                               # clause heading detection
+serde = { version = "1", features = ["derive"] }          # index persistence
+serde_json = "1"                                          # Ollama payloads and index.json
+ureq = { version = "2.12", features = ["json"] }          # blocking HTTP to loopback Ollama
+
+[profile.release]
+lto = true
+strip = true

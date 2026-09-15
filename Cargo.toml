@@ -1,0 +1,49 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/cloud-sec-core",
+    "crates/cloud-sec-config",
+    "crates/cloud-sec-ollama",
+    "crates/cloud-sec-docs",
+    "crates/cloud-sec-bridge",
+    "apps/cloud-sec-app",
+    "apps/cloud-sec-app/frontend",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+authors = ["suradet-ps"]
+repository = "https://github.com/suradet-ps/cloud-sec"
+
+[workspace.dependencies]
+cloud-sec-core = { path = "crates/cloud-sec-core" }
+cloud-sec-config = { path = "crates/cloud-sec-config" }
+cloud-sec-ollama = { path = "crates/cloud-sec-ollama" }
+cloud-sec-docs = { path = "crates/cloud-sec-docs" }
+cloud-sec-bridge = { path = "crates/cloud-sec-bridge" }
+
+serde = { version = "1.0", features = ["derive"] }          # serialization across the boundary
+serde_json = "1.0"                                          # JSON payloads for Tauri IPC and the index
+thiserror = "2"                                             # structured errors in lib code
+anyhow = "1"                                                # error context in binaries
+regex = "1"                                                 # clause heading detection
+ureq = { version = "2.12", features = ["json"] }            # blocking HTTP to loopback Ollama
+tauri = { version = "2", features = [] }                    # desktop shell
+tauri-build = "2"                                           # tauri context generation
+tokio = { version = "1", features = ["rt", "macros"] }      # async runtime for tests
+tracing = "0.1"                                             # structured logging
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }  # log output
+leptos = "0.8"                                              # reactive UI framework (frontend)
+wasm-bindgen = "0.2"                                        # wasm interop
+wasm-bindgen-futures = "0.4"                                # async on wasm
+js-sys = "0.3"                                              # window/global access on wasm
+web-sys = "0.3"                                             # DOM access on wasm
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "z"
+panic = "abort"
+strip = true

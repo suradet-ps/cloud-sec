@@ -1,0 +1,273 @@
+/* Cloud Sec UI - design system in docs/DESIGN.md:
+   paper-white canvas, pill geometry, hairline borders, no shadows. */
+
+:root {
+  --canvas: #ffffff;
+  --surface-soft: #fafafa;
+  --surface-dark: #171717;
+  --hairline: #e5e5e5;
+  --hairline-strong: #d4d4d4;
+  --ink: #000000;
+  --ink-deep: #090909;
+  --charcoal: #525252;
+  --body: #737373;
+  --mute: #a3a3a3;
+  --focus-ring: rgba(59, 130, 246, 0.5);
+  /* The single semantic color in the app (docs/DESIGN.md), used only for
+     the ready status dot. */
+  --status-ok: #16a34a;
+  --radius-pill: 9999px;
+  --radius-card: 12px;
+  --font-display: "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Leelawadee UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Top bar -------------------------------------------------------------- */
+
+.topbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-soft);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--charcoal);
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--mute);
+  display: inline-block;
+}
+
+.status-dot-ok {
+  background: var(--status-ok);
+}
+
+/* Page ------------------------------------------------------------------ */
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 72px;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+
+.lede {
+  color: var(--body);
+  margin: 0 0 24px;
+}
+
+/* Ask row ---------------------------------------------------------------- */
+
+.ask-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.ask-input {
+  flex: 1;
+  height: 44px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill);
+  padding: 0 20px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--canvas);
+  outline: none;
+}
+
+.ask-input:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.btn-primary {
+  height: 40px;
+  padding: 0 24px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--canvas);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-primary:active {
+  background: var(--ink-deep);
+}
+
+.btn-primary:disabled {
+  background: var(--surface-soft);
+  color: var(--mute);
+  cursor: default;
+}
+
+/* Answer ----------------------------------------------------------------- */
+
+.answer-card {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  margin-top: 32px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.answer-meta {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--mute);
+  font-family: var(--font-mono);
+}
+
+.busy-line {
+  margin-top: 32px;
+  color: var(--body);
+  font-size: 14px;
+}
+
+.busy-line::after {
+  content: "";
+  animation: dots 1.2s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0% {
+    content: "";
+  }
+  25% {
+    content: ".";
+  }
+  50% {
+    content: "..";
+  }
+  75% {
+    content: "...";
+  }
+}
+
+/* Sources ---------------------------------------------------------------- */
+
+.sources {
+  margin-top: 40px;
+}
+
+.sources h2 {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+.source-card {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  margin-top: 12px;
+}
+
+.source-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.tag {
+  background: var(--surface-soft);
+  border-radius: var(--radius-pill);
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.tag-muted {
+  color: var(--charcoal);
+}
+
+.source-preview {
+  margin-top: 8px;
+  color: var(--charcoal);
+  font-size: 14px;
+}
+
+.source-card details {
+  margin-top: 8px;
+}
+
+.source-card summary {
+  cursor: pointer;
+  color: var(--body);
+  font-size: 14px;
+}
+
+.source-text {
+  margin: 8px 0 0;
+  color: var(--body);
+  font-size: 14px;
+  line-height: 1.43;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--font-body);
+}
+
+/* Error ------------------------------------------------------------------ */
+
+.error-card {
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  margin-top: 32px;
+  color: var(--charcoal);
+}
+

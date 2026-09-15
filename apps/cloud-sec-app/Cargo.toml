@@ -1,0 +1,23 @@
+[package]
+name = "cloud-sec-app"
+description = "Cloud Sec desktop shell: Tauri 2 backend serving the Leptos frontend"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[build-dependencies]
+tauri-build = { workspace = true }
+
+[dependencies]
+cloud-sec-core = { workspace = true }
+cloud-sec-config = { workspace = true }
+cloud-sec-ollama = { workspace = true }
+cloud-sec-docs = { workspace = true }
+cloud-sec-bridge = { workspace = true }
+tauri = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }

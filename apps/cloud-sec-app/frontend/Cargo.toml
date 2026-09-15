@@ -1,0 +1,18 @@
+[package]
+name = "cloud-sec-frontend"
+description = "Cloud Sec Leptos 0.8 CSR frontend (compiled to WASM via trunk)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[dependencies]
+cloud-sec-bridge = { workspace = true }
+leptos = { workspace = true, features = ["csr"] }
+serde = { workspace = true }
+serde_json = { workspace = true }
+wasm-bindgen = { workspace = true }
+wasm-bindgen-futures = { workspace = true }
+js-sys = { workspace = true }
+web-sys = { workspace = true, features = ["Window", "Event", "SubmitEvent", "HtmlInputElement"] }
