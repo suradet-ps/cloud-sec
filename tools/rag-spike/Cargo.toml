@@ -10,7 +10,7 @@ anyhow = "1"                                              # application error co
 regex = "1"                                               # clause heading detection
 serde = { version = "1", features = ["derive"] }          # index persistence
 serde_json = "1"                                          # Ollama payloads and index.json
-ureq = { version = "2.12", features = ["json"] }          # blocking HTTP to loopback Ollama
+ureq = { version = "3.0", features = ["json"] }          # blocking HTTP to loopback Ollama
 
 [profile.release]
 lto = true
