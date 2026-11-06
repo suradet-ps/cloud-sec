@@ -29,7 +29,7 @@ serde_json = "1.0"                                          # JSON payloads for 
 thiserror = "2"                                             # structured errors in lib code
 anyhow = "1"                                                # error context in binaries
 regex = "1"                                                 # clause heading detection
-ureq = { version = "2.12", features = ["json"] }            # blocking HTTP to loopback Ollama
+ureq = { version = "3.0", features = ["json"] }            # blocking HTTP to loopback Ollama
 tauri = { version = "2", features = [] }                    # desktop shell
 tauri-build = "2"                                           # tauri context generation
 tokio = { version = "1", features = ["rt", "macros"] }      # async runtime for tests
